@@ -17,20 +17,16 @@
     <fieldset>
         <legend>Edição</legend>
         <h4>Editar produtos existentes</h4>
-        <form action="/produtos" method="POST">
+        <form id="form" action="/produtos" method="POST">
             @csrf
             @method('PUT')
             <label for="id">ID</label>
-            <input name="id" value="{{ request('id') }}" type="text">
-            <br>
-            <br>
+            <input name="id" value="{{ request('id') }}" type="text" placeholder="ID do produto">
             <label for="codigo">Codigo</label>
-            <input name="codigo" type="text">
+            <input name="codigo" type="text" placeholder="Codigo do produto">
             <label for="descricao">Descricao</label>
-            <input name="descricao" type="text">
-            <br>
-            <br>
-            <input type="submit" value="Enviar">
+            <input name="descricao" type="text" placeholder="Descrição do produto">
+            <input id="enviar" type="submit" value="Enviar">
         </form>
     </fieldset>
 

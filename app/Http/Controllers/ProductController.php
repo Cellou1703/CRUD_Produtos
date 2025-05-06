@@ -53,7 +53,6 @@ class ProductController extends Controller
         } else {
             $produto = Product::find($request->id);
 
-
             if ($produto != null) {
                 $produto->delete();
                 return redirect('../');

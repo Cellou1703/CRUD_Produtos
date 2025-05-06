@@ -14,7 +14,7 @@
                     $dataC = $produto->created_at;
                     $dataU = $produto->updated_at;
                 @endphp
-                <p>O id do produto é {{ $id }}</p>
+                <h3>Informações do produto com ID = {{ $id }}:</h3>
                 <p>O codigo do produto é {{ $produto->codigo }}</p>
                 @if ($produto->descricao != null)
                     <p>Descrição do produto : {{ $produto->descricao }}</p>

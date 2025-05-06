@@ -13,13 +13,11 @@
     <fieldset>
         <legend>Restaurar</legend>
         <h4>Restaurar produtos excluidos</h4>
-        <form action="/produtos/restaurar" method="POST">
+        <form id="form" action="/produtos/restaurar" method="POST">
             @csrf
             <label for="id">ID</label>
             <input name="id" type="text" placeholder="ID do produto">
-            <br>
-            <br>
-            <input type="submit" value="Enviar">
+            <input id="enviar" type="submit" value="Enviar">
         </form>
 
     </fieldset>

@@ -13,14 +13,12 @@
     <fieldset>
         <legend>Exclusão</legend>
         <h4>Excluir produto existente</h4>
-        <form action="/produtos" method="POST">
+        <form id="form" action="/produtos" method="POST">
             @csrf
             @method('DELETE')
             <label for="id">ID</label>
             <input name="id" type="text" placeholder="ID do produto">
-            <br>
-            <br>
-            <input type="submit" value="Enviar">
+            <input id="enviar" type="submit" value="Enviar">
         </form>
 
     </fieldset>

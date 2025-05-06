@@ -11,15 +11,13 @@
 
         <legend>Cadastro</legend>
         <h4>Cadastrar novo produto</h4>
-        <form action="/produtos" method="POST">
+        <form id="form" action="/produtos" method="POST">
             @csrf
             <label for="codigo">Codigo</label>
-            <input name="codigo" type="text">
+            <input name="codigo" type="text" placeholder="Codigo do produto">
             <label for="descricao">Descricao</label>
-            <input name="descricao">
-            <br>
-            <br>
-            <input type="submit" value="Enviar">
+            <input name="descricao" placeholder="Descrição do produto">
+            <input id="enviar" type="submit" value="Enviar">
         </form>
     </fieldset>
 

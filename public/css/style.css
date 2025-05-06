@@ -1,6 +1,125 @@
-input {
-    width: 100px;
-    height: 20px;
-    border-radius: 5px;
-    border-width: 1px;
+body {
+    font-family: 'Cal Sans', sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+#navbar {
+    background-color: #146a8f;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end; /* Alinha à direita */
+    gap: 15px; /* Espaço entre os itens */
+}
+
+.esquerda{
+    margin-right: 56%;
+    display: flex;
+}
+.direita {
+    display: flex;
+    gap: 15px;
+}
+
+#a_nav {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+}
+#a_navE {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+}
+
+#a_nav:hover {
+    background-color: #1685b4;
+    border-radius: 4px;
+}
+
+h1, h3 {
+    text-align: center;
+}
+#bt_ir {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#bt_ir:hover {
+    background-color: #555;
+}
+
+#bt_table{
+    width: 70px;
+    height: 40px;
+    background-color: #555;
+    border-radius: 5px;
+    border-width: 0px;
+    margin-top: 1px;
+}
+
+a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 80%; /* Ajuste de largura para a tabela */
+    text-align: center; /* Centraliza o conteúdo das células */
+}
+
+table, th, td {
+    border: 2px solid #333;
+}
+
+th, td {
+    padding: 10px;
+}
+
+fieldset {
+    max-width: 400px;
+    margin: 30px auto; /* centraliza horizontalmente */
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+input[name="descricao"] {
+    padding: 8px;
+    font-size: 16px;
+}
+
+#enviar{
+    width: 100px;
+    padding: 8px;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #333;
+    color: #ccc;
+    border-radius: 5px;
+    border-width: 0px;
+    box-shadow: #555 2px 2px 2px;
+}
+
+
+
+
