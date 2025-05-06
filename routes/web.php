@@ -17,19 +17,19 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class, 'index']);
 
-Route::get('/produtos/cadastrar', [ProductController::class, 'cadastrar']);
+Route::get('/produtos/cadastrar', [ProductController::class, 'create']);
 Route::post('/produtos', [ProductController::class, 'store']);
 
-Route::get('/produtos/excluir', [ProductController::class, 'excluir']);
+Route::get('/produtos/excluir', [ProductController::class, 'confirmDelet']);
 Route::delete('/produtos', [ProductController::class, 'destroy']);
 
-Route::get('/produtos/editar', [ProductController::class, 'editar']);
-Route::put('/produtos', [ProductController::class, 'editarProduto']);
+Route::get('/produtos/editar', [ProductController::class, 'edit']);
+Route::put('/produtos', [ProductController::class, 'update']);
 
-Route::get('/produtos/produto/{id?}', [ProductController::class, 'listarProduto']);
+Route::get('/produtos/produto/{id?}', [ProductController::class, 'show']);
 
-Route::get('/produtos/listar', [ProductController::class, 'listar']);
+Route::get('/produtos/listar', [ProductController::class, 'index']);
 
-Route::get('/produtos/restaurar', [ProductController::class, 'restaurar']);
-Route::post('/produtos/restaurar', [ProductController::class, 'restaurarProduto']);
+Route::get('/produtos/restaurar', [ProductController::class, 'restorePage']);
+Route::post('/produtos/restaurar', [ProductController::class, 'restore']);
 

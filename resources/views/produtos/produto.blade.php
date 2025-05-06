@@ -14,19 +14,23 @@
                     $dataC = $produto->created_at;
                     $dataU = $produto->updated_at;
                 @endphp
+
                 <h3>Informações do produto com ID = {{ $id }}:</h3>
-                <p>O codigo do produto é {{ $produto->codigo }}</p>
-                @if ($produto->descricao != null)
-                    <p>Descrição do produto : {{ $produto->descricao }}</p>
-                @endif
-                <p>Criado dia {{$dataC->format('d') . ' de ' . $dataC->format('M') . ' às ' . $dataC->format('H:i')}}</p>
-                <p>Ultima atualização foi dia {{$dataU->format('d') . ' de ' . $dataU->format('M') . ' às ' . $dataU->format('H:i')}}
-                </p>
-                @php $valido = true; @endphp
+                <fieldset>
+                    <h4>O codigo do produto é {{ $produto->codigo }}</h4>
+                    @if ($produto->descricao != null)
+                        <h4>Descrição do produto : {{ $produto->descricao }}</h4>
+                    @endif
+                    <h4>Criado dia {{$dataC->format('d') . ' de ' . $dataC->format('M') . ' às ' . $dataC->format('H:i')}}</h4>
+                    <h4>Ultima atualização foi dia
+                        {{$dataU->format('d') . ' de ' . $dataU->format('M') . ' às ' . $dataU->format('H:i')}}
+                    </h4>
+                    @php $valido = true; @endphp
+                </fieldset>
             @endif
         @endforeach
         @if ($valido == false)
-            <p>Não foi encontrado produto com este id</p>
+            <h5>Não foi encontrado produto com este id</h5>
         @endif
 
     @endif

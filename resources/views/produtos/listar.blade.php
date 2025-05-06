@@ -33,10 +33,10 @@
                         <p>{{ $produto->descricao }}</p>
                     </td>
                     <td>
-                        <p>{{ $produto->created_at }}</p>
+                        <p>Data: {{ $produto->created_at->format('d/m/Y')}}<br>Hora:{{ $produto->created_at->format('H:i') }}</p>
                     </td>
                     <td>
-                        <p>{{ $produto->updated_at }}</p>
+                        <p>Data: {{ $produto->updated_at->format('d/m/Y')}}<br>Hora:{{ $produto->updated_at->format('H:i') }}</p>
                     </td>
                     <td>
                         <button id="bt_table"><a style="color: white;" href="/produtos/produto/{{ $produto->id }}">Ver

@@ -10,10 +10,10 @@ class ProductController extends Controller
     public function index()
     {
         $produtos = Product::all();
-        return view('welcome', ['produtos' => $produtos]);
+        return view('produtos.listar', ['produtos' => $produtos]);
     }
 
-    public function cadastrar()
+    public function create()
     {
         return view('produtos.cadastrar');
     }
@@ -36,7 +36,7 @@ class ProductController extends Controller
     }
 
 
-    public function excluir()
+    public function confirmDelet()
     {
         return view('produtos.excluir');
     }
@@ -45,7 +45,7 @@ class ProductController extends Controller
     {
 
         if ($request->id == null) {
-            return redirect('/produtos/restaurar')->with(
+            return redirect('/produtos/excluir')->with(
                 'mensagem1',
                 'O campo ID não pode ficar em branco !'
             );
@@ -65,28 +65,23 @@ class ProductController extends Controller
         }
     }
 
-    public function listar()
-    {
-        $produtos = Product::all();
-        return view('produtos.listar', ['produtos' => $produtos]);
-    }
 
-    public function listarProduto($id = null)
+    public function show($id = null)
     {
         $produtos = Product::all();
         return view('produtos.produto', ['id' => $id, 'produtos' => $produtos]);
     }
 
-    public function editar()
+    public function edit()
     {
         return view('produtos.editar');
     }
 
-    public function editarProduto(Request $request)
+    public function update(Request $request)
     {
 
         if ($request->id == null) {
-            return redirect('/produtos/restaurar')->with(
+            return redirect('/produtos/editar')->with(
                 'mensagem1',
                 'O campo ID não pode ficar em branco !'
             );
@@ -122,12 +117,12 @@ class ProductController extends Controller
         }
     }
 
-    public function restaurar()
+    public function restorePage()
     {
         return view('produtos.restaurar');
     }
 
-    public function restaurarProduto(Request $request)
+    public function restore(Request $request)
     {
 
         if ($request->id == null) {
