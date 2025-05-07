@@ -7,23 +7,21 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    //pagina inicial
     public function index()
     {
         $produtos = Product::all();
         return view('welcome', ['produtos' => $produtos]);
     }
 
-    public function indexShow()
-    {
-        $produtos = Product::all();
-        return view('produtos.listar', ['produtos' => $produtos]);
-    }
 
+    //Cadastrar
+    //pagina cadastrar
     public function create()
     {
         return view('produtos.cadastrar');
     }
-
+    //acao cadastrar
     public function store(Request $request)
     {
         if ($request->codigo == null) {
@@ -45,12 +43,13 @@ class ProductController extends Controller
         }
     }
 
-
-    public function confirmDelet()
+    //Excluir
+    //pagina excluir
+    public function deletePage()
     {
         return view('produtos.excluir');
     }
-
+    //acao excluir
     public function destroy(Request $request)
     {
 
@@ -78,32 +77,13 @@ class ProductController extends Controller
         }
     }
 
-    public function destroyShow(Request $request)
-    {
-
-
-        $produto = Product::find($request->id);
-
-        $produto->delete();
-        return redirect('/produtos/listar')->with(
-            'mensagem',
-            'Excluido com sucesso!'
-        );
-
-
-    }
-
-    public function show($id = null)
-    {
-        $produtos = Product::all();
-        return view('produtos.produto', ['id' => $id, 'produtos' => $produtos]);
-    }
-
+    //Editar
+    //pagina editar
     public function edit()
     {
         return view('produtos.editar');
     }
-
+    //acao editar
     public function update(Request $request)
     {
 
@@ -147,11 +127,36 @@ class ProductController extends Controller
         }
     }
 
+    //Listar
+    //pagina listar
+    public function showList()
+    {
+        $produtos = Product::all();
+        return view('produtos.listar', ['produtos' => $produtos]);
+    }
+    //acao deletar pela tabela
+    public function destroyFromList(Request $request)
+    {
+
+
+        $produto = Product::find($request->id);
+
+        $produto->delete();
+        return redirect('/produtos/listar')->with(
+            'mensagem',
+            'Excluido com sucesso!'
+        );
+
+
+    }
+
+    //Restaurar
+    //pagina restaurar
     public function restorePage()
     {
         return view('produtos.restaurar');
     }
-
+    //acao restaurar
     public function restore(Request $request)
     {
 
@@ -178,5 +183,12 @@ class ProductController extends Controller
                 );
             }
         }
+    }
+
+    //Mostrar produto especifico
+    public function show($id = null)
+    {
+        $produtos = Product::all();
+        return view('produtos.produto', ['id' => $id, 'produtos' => $produtos]);
     }
 }

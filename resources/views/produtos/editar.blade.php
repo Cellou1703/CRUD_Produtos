@@ -23,9 +23,9 @@
             <label for="id">ID</label>
             <input name="id" value="{{ request('id') }}" type="text" placeholder="ID do produto">
             <label for="codigo">Codigo</label>
-            <input name="codigo" type="text" placeholder="Codigo do produto">
+            <input name="codigo" type="text" placeholder="Codigo do produto" maxlength="30">
             <label for="descricao">Descricao</label>
-            <input name="descricao" type="text" placeholder="Descrição do produto">
+            <input name="descricao" type="text" placeholder="Descrição do produto" maxlength="60">
             <input id="enviar" type="submit" value="Enviar">
         </form>
     </fieldset>

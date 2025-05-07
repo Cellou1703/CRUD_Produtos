@@ -39,23 +39,26 @@
                         <p>Data: {{ $produto->updated_at->format('d/m/Y')}}<br>Hora:{{ $produto->updated_at->format('H:i') }}</p>
                     </td>
                     <td>
-                        <button id="bt_table"><a style="color: white;" href="/produtos/produto/{{ $produto->id }}">Ver
-                                produto</a></button>
+                        <button id="bt_table">
+                            <a style="color: white;" href="/produtos/produto/{{ $produto->id }}">Ver produto</a>
+                        </button>
                         <form action="/produtos/listar" method="post">
                             @csrf
                             @method('DELETE')
-                            <button style="color: white;" id="bt_table" name="id" value="{{ $produto->id }}">Excluir
-                                produto</button>
+                            <button style="color: white;" id="bt_table" name="id" value="{{ $produto->id }}">
+                                Excluir produto
+                            </button>
                         </form>
-                        <button id="bt_table"><a style="color: white;" href="/produtos/editar?id={{ $produto->id }}">Editar
-                                produto</a></button>
+                        <button id="bt_table">
+                            <a style="color: white;" href="/produtos/editar?id={{ $produto->id }}">Editar produto</a>
+                        </button>
                     </td>
                 </tr>
             @endforeach
 
         </table>
     @else
-        <h2>Ainda não existem produtos cadastrados</h2>
+        <h1>Ainda não existem produtos cadastrados</h1>
     @endif
 
 

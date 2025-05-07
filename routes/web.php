@@ -15,22 +15,28 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductController;
 
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/', [ProductController::class, 'index']);//pagina inicial
 
-Route::get('/produtos/cadastrar', [ProductController::class, 'create']);
-Route::post('/produtos', [ProductController::class, 'store']);
+//Cadastrar
+Route::get('/produtos/cadastrar', [ProductController::class, 'create']);//pagina
+Route::post('/produtos', [ProductController::class, 'store']);//acao
 
-Route::get('/produtos/excluir', [ProductController::class, 'confirmDelet']);
-Route::delete('/produtos', [ProductController::class, 'destroy']);
+//Exluir
+Route::get('/produtos/excluir', [ProductController::class, 'deletePage']);//pagina
+Route::delete('/produtos', [ProductController::class, 'destroy']);//acao
 
-Route::get('/produtos/editar', [ProductController::class, 'edit']);
-Route::put('/produtos', [ProductController::class, 'update']);
+//Editar
+Route::get('/produtos/editar', [ProductController::class, 'edit']);//pagina
+Route::put('/produtos', [ProductController::class, 'update']);//acao
 
+//Listar
+Route::get('/produtos/listar', [ProductController::class, 'showList']);//pagina
+Route::delete('/produtos/listar', [ProductController::class, 'destroyFromList']);//acao deletar pelo botao da lista
+
+//Restaurar
+Route::get('/produtos/restaurar', [ProductController::class, 'restorePage']);//pagina
+Route::post('/produtos/restaurar', [ProductController::class, 'restore']);//acao
+
+//Mostrar produto especifico
 Route::get('/produtos/produto/{id?}', [ProductController::class, 'show']);
-
-Route::get('/produtos/listar', [ProductController::class, 'indexShow']);
-Route::delete('/produtos/listar', [ProductController::class, 'destroyShow']);
-
-Route::get('/produtos/restaurar', [ProductController::class, 'restorePage']);
-Route::post('/produtos/restaurar', [ProductController::class, 'restore']);
 
