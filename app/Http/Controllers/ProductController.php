@@ -10,6 +10,12 @@ class ProductController extends Controller
     public function index()
     {
         $produtos = Product::all();
+        return view('welcome', ['produtos' => $produtos]);
+    }
+
+    public function indexShow()
+    {
+        $produtos = Product::all();
         return view('produtos.listar', ['produtos' => $produtos]);
     }
 
@@ -31,7 +37,11 @@ class ProductController extends Controller
             $produto->descricao = $request->descricao;
             $produto->save();
 
-            return redirect('../');
+            return redirect('../')->with(
+                'mensagem',
+                'Cadastrado com sucesso!'
+            );
+            ;
         }
     }
 
@@ -55,7 +65,10 @@ class ProductController extends Controller
 
             if ($produto != null) {
                 $produto->delete();
-                return redirect('../');
+                return redirect('../')->with(
+                    'mensagem',
+                    'Excluido com sucesso!'
+                );
             } else {
                 return redirect('/produtos/excluir')->with(
                     'mensagem2',
@@ -65,6 +78,20 @@ class ProductController extends Controller
         }
     }
 
+    public function destroyShow(Request $request)
+    {
+
+
+        $produto = Product::find($request->id);
+
+        $produto->delete();
+        return redirect('/produtos/listar')->with(
+            'mensagem',
+            'Excluido com sucesso!'
+        );
+
+
+    }
 
     public function show($id = null)
     {
@@ -99,14 +126,17 @@ class ProductController extends Controller
                 } else if ($request->codigo == $produto->codigo && $request->descricao == $produto->descricao) {
                     return redirect('/produtos/editar')->with(
                         'mensagem3',
-                        'Você não alterou nenhum dado do produto ' . $request->id . '! Por favor modifique os valores'
+                        'Você não alterou nenhum dado do produto ' . $request->id . '!\nPor favor modifique os valores'
                     );
                 } else {
                     $produto->codigo = $request->codigo;
                     $produto->descricao = $request->descricao;
                     $produto->save();
 
-                    return redirect('../');
+                    return redirect('../')->with(
+                        'mensagem',
+                        'Editado com sucesso!'
+                    );
                 }
             } else {
                 return redirect('/produtos/editar')->with(
@@ -137,11 +167,14 @@ class ProductController extends Controller
 
             if ($produto != null) {
                 $produto->restore();
-                return redirect('../');
+                return redirect('../')->with(
+                    'mensagem',
+                    'Restaurado com sucesso!'
+                );
             } else {
                 return redirect('/produtos/restaurar')->with(
                     'mensagem2',
-                    'Não existe produto com ID =' . $request->id . ' !'
+                    'Não existe produto com ID =' . $request->id . ' para ser restaurado !'
                 );
             }
         }

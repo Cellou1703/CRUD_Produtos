@@ -28,7 +28,8 @@ Route::put('/produtos', [ProductController::class, 'update']);
 
 Route::get('/produtos/produto/{id?}', [ProductController::class, 'show']);
 
-Route::get('/produtos/listar', [ProductController::class, 'index']);
+Route::get('/produtos/listar', [ProductController::class, 'indexShow']);
+Route::delete('/produtos/listar', [ProductController::class, 'destroyShow']);
 
 Route::get('/produtos/restaurar', [ProductController::class, 'restorePage']);
 Route::post('/produtos/restaurar', [ProductController::class, 'restore']);

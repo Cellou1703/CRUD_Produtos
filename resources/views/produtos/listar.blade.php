@@ -41,7 +41,7 @@
                     <td>
                         <button id="bt_table"><a style="color: white;" href="/produtos/produto/{{ $produto->id }}">Ver
                                 produto</a></button>
-                        <form action="/produtos" method="post">
+                        <form action="/produtos/listar" method="post">
                             @csrf
                             @method('DELETE')
                             <button style="color: white;" id="bt_table" name="id" value="{{ $produto->id }}">Excluir

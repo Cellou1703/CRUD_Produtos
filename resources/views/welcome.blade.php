@@ -24,6 +24,18 @@
             </a>
         </div>
         <hr>
+        @if (session('mensagem'))
+            <div id="msg" class="toast show">{{ session('mensagem') }}</div>
+
+            <script>
+                setTimeout(() => {
+                    const msg = document.getElementById('msg');
+
+                    msg.style.display = 'none';
+
+                }, 1500);
+            </script>
+        @endif
 
     </div>
 
